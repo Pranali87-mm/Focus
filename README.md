@@ -1,9 +1,9 @@
-Focus
+**Focus**
 
 Focus is a calm, body-double based Pomodoro study app designed to help students maintain focus while avoiding burnout.
 It emphasizes gentle structure, presence, and sustainable study habits instead of pressure or gamification.
 
-Overview
+**Overview**
 
 Most Pomodoro apps either:
 
@@ -14,7 +14,7 @@ Ignore mental fatigue and burnout completely
 Focus takes a different approach.
 It uses a silent, visual body-double to accompany users during focus sessions and reflect their overall work–rest rhythm without interruptions or guilt.
 
-Target Audience
+**Target Audience**
 
 College students
 
@@ -22,43 +22,43 @@ Students who study alone at home or in hostels
 
 ADHD-friendly users who prefer low-pressure focus tools
 
-Core Features (MVP)
+**Core Features (MVP)**
 
 Preset Pomodoro timers
 
-25 / 5
-
-45 / 10
-
-50 / 10
+  25 / 5
+  
+  45 / 10
+  
+  50 / 10
 
 Planned session count
 
-Users choose how many sessions they intend to complete (2 / 4 / 6)
+  Users choose how many sessions they intend to complete (2 / 4 / 6)
 
 Body-double character
 
-Visible during focus sessions
-
-Calm breathing and subtle micro-movements
-
-No interaction, no distractions
+  Visible during focus sessions
+  
+  Calm breathing and subtle micro-movements
+  
+  No interaction, no distractions
 
 Break mode
 
-Softer visuals and relaxed character posture
-
-Encourages proper rest without stimulation
+  Softer visuals and relaxed character posture
+  
+  Encourages proper rest without stimulation
 
 Reflection & insights
 
-Focus vs break balance
+  Focus vs break balance
+  
+  Planned vs completed sessions
+  
+  Character state (Balanced / Strained / Exhausted)
 
-Planned vs completed sessions
-
-Character state (Balanced / Strained / Exhausted)
-
-Design Philosophy
+**Design Philosophy**
 
 Presence over interaction
 
@@ -70,7 +70,7 @@ No mid-session interruptions
 
 No penalties, streaks, or guilt-based feedback
 
-Tech Stack
+**Tech Stack**
 
 Language: Kotlin
 
@@ -82,7 +82,7 @@ Local Storage: Room Database
 
 Design System: Material 3 (customized with a calm, autumn-cozy aesthetic)
 
-Data Handling
+**Data Handling**
 
 All data is stored locally on the device
 
@@ -92,7 +92,7 @@ No account, login, or cloud sync
 
 Privacy-first by design
 
-Screens (MVP)
+**Screens (MVP)**
 
 Intro / onboarding
 
@@ -108,7 +108,7 @@ Reflection screen
 
 Insights screen
 
-Roadmap (Future Ideas)
+**Roadmap (Future Ideas)**
 
 Additional visual themes
 
@@ -124,7 +124,8 @@ Status
 
 This project is currently under active development as a UI/UX-focused Android app and portfolio case study.
 
-License
-
+**License**
+MIT License
+Feel free to explore, learn, and build upon it.
 MIT License
 Feel free to explore, learn, and build upon it.
