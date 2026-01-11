@@ -1,74 +1,50 @@
-**Focus**
+**Focus – Body-Double Pomodoro Study App**
 
-Focus is a calm, body-double based Pomodoro study app designed to help students maintain focus while avoiding burnout.
-It emphasizes gentle structure, presence, and sustainable study habits instead of pressure or gamification.
+Focus is a calm, body-double based Pomodoro study app for college students and ADHD-friendly users. It helps users maintain focus without burnout by providing a quiet visual companion, gentle reflections, and subtle progression cues. Unlike typical productivity apps, Focus avoids gamification, streaks, and pressure, emphasizing sustainable focus and presence.
 
-**Overview**
+**Features
+**
+Preset Pomodoro Timers: 25/5, 45/10, 50/10 minute cycles.
 
-Most Pomodoro apps either:
+Planned Session Count: Users select how many sessions they intend to complete (2, 4, 6).
 
-Over-gamify productivity and create pressure, or
+Body-Double Character: Always present during focus; minimal animations (breathing, blink, micro-posture shifts).
 
-Ignore mental fatigue and burnout completely
+Break Screen: Character posture relaxes; lighting softens to encourage rest.
 
-Focus takes a different approach.
-It uses a silent, visual body-double to accompany users during focus sessions and reflect their overall work–rest rhythm without interruptions or guilt.
+Character States: Balanced / Strained / Exhausted, based on session completion and breaks.
 
-**Target Audience**
+Reflection & Insights: Shows completed vs planned sessions, focus/break ratio, and character states timeline.
 
-College students
+Story-Based Moments: Unlock subtle, static images of the character in different life moments. Images hint at a timeline but are never explicitly explained.
 
-Students who study alone at home or in hostels
+Local Storage Only: All data is stored on-device via Room; no cloud or account required.
 
-ADHD-friendly users who prefer low-pressure focus tools
+**Design
+**
+Aesthetic: Warm, autumn-cozy, calm and minimal interface.
 
-**Core Features (MVP)**
+Character: Maximalist illustrations; subtle presence to avoid distraction.
 
-Preset Pomodoro timers
+Material 3 Principles: Spacing, elevation, and components consistent throughout.
 
-  25 / 5
-  
-  45 / 10
-  
-  50 / 10
+**Screen Flow (MVP)**
 
-Planned session count
+Onboarding / Intro – Philosophy and timer explanation with minimal text or short GIF.
 
-  Users choose how many sessions they intend to complete (2 / 4 / 6)
+Character Selection / Setup – Optional initial choice for body-double appearance.
 
-Body-double character
+Timer Setup – Select Pomodoro preset and planned session count.
 
-  Visible during focus sessions
-  
-  Calm breathing and subtle micro-movements
-  
-  No interaction, no distractions
+Focus Screen – Timer + character; micro-animations only.
 
-Break mode
+Break Screen – Relaxed character, warmer environment.
 
-  Softer visuals and relaxed character posture
-  
-  Encourages proper rest without stimulation
+Reflection Screen – Shows session completion, balance, and character state messages.
 
-Reflection & insights
+Insights Screen – Graphs for focus vs break, session completion trends, state timeline.
 
-  Focus vs break balance
-  
-  Planned vs completed sessions
-  
-  Character state (Balanced / Strained / Exhausted)
-
-**Design Philosophy**
-
-Presence over interaction
-
-Gentle structure, not pressure
-
-Minimal choices to reduce decision fatigue
-
-No mid-session interruptions
-
-No penalties, streaks, or guilt-based feedback
+Moments Collection – Gallery of unlocked story-based images of the character; chronological hints, no explicit narrative.
 
 **Tech Stack**
 
@@ -80,52 +56,21 @@ Architecture: MVVM
 
 Local Storage: Room Database
 
-Design System: Material 3 (customized with a calm, autumn-cozy aesthetic)
+Design System: Material 3 with warm, autumn-cozy aesthetic
 
-**Data Handling**
+**How to Run**
 
-All data is stored locally on the device
+Clone the repository:
 
-No remote APIs in MVP
+git clone https://github.com/Pranali87-mm/Focus.git
 
-No account, login, or cloud sync
 
-Privacy-first by design
+Open in Android Studio.
 
-**Screens (MVP)**
+Build and run on an emulator or device (minimum SDK 21).
 
-Intro / onboarding
-
-Philosophy explanation
-
-Timer setup
-
-Focus session
-
-Break session
-
-Reflection screen
-
-Insights screen
-
-**Roadmap (Future Ideas)**
-
-Additional visual themes
-
-Optional ambient sounds
-
-More character variations
-
-Extended insights (still non-competitive)
-
-No productivity features will ever be paywalled.
-
-Status
-
-This project is currently under active development as a UI/UX-focused Android app and portfolio case study.
+No account setup required; data is stored locally.
 
 **License**
-MIT License
-Feel free to explore, learn, and build upon it.
-MIT License
-Feel free to explore, learn, and build upon it.
+
+MIT License – free to explore, learn, and build upon.
