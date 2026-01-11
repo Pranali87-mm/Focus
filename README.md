@@ -2,8 +2,7 @@
 
 Focus is a calm, body-double based Pomodoro study app for college students and ADHD-friendly users. It helps users maintain focus without burnout by providing a quiet visual companion, gentle reflections, and subtle progression cues. Unlike typical productivity apps, Focus avoids gamification, streaks, and pressure, emphasizing sustainable focus and presence.
 
-**Features
-**
+**Features**
 Preset Pomodoro Timers: 25/5, 45/10, 50/10 minute cycles.
 
 Planned Session Count: Users select how many sessions they intend to complete (2, 4, 6).
@@ -20,8 +19,7 @@ Story-Based Moments: Unlock subtle, static images of the character in different 
 
 Local Storage Only: All data is stored on-device via Room; no cloud or account required.
 
-**Design
-**
+**Design**
 Aesthetic: Warm, autumn-cozy, calm and minimal interface.
 
 Character: Maximalist illustrations; subtle presence to avoid distraction.
