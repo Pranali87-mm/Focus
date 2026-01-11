@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.pranali.focus.data.local.entity.SessionEntity
+import androidx.compose.ui.unit.sp
 import com.pranali.focus.data.repository.SessionRepository
 import com.pranali.focus.ui.theme.*
 import java.text.SimpleDateFormat
@@ -104,11 +104,12 @@ fun ReportsScreen(
 
         // --- Grouped History List ---
         LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.weight(1f) // Ensures list scrolls within space
         ) {
             groupedSessions.forEach { (header, sessionList) ->
 
-                // The Date Header (Sticky or normal)
+                // The Date Header (Sticky)
                 stickyHeader {
                     DateHeader(text = header)
                 }
@@ -118,7 +119,8 @@ fun ReportsScreen(
                     SessionHistoryItem(
                         time = session.date,
                         duration = session.durationMinutes,
-                        count = session.sessionCount
+                        count = session.sessionCount,
+                        rhythmState = session.rhythmState // Passing the state string
                     )
                 }
             }
@@ -141,8 +143,16 @@ fun DateHeader(text: String) {
 }
 
 @Composable
-fun SessionHistoryItem(time: Long, duration: Int, count: Int) {
+fun SessionHistoryItem(time: Long, duration: Int, count: Int, rhythmState: String) {
     val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+
+    // Determine visuals based on state
+    val (statusColor, statusIcon) = when (rhythmState) {
+        "Balanced" -> Pair(MutedMoss, "🌿")
+        "Strained" -> Pair(BurntOrange, "🔥")
+        "Exhausted" -> Pair(Color.Gray, "🌙")
+        else -> Pair(MutedGreyBrown, "•")
+    }
 
     Card(
         colors = CardDefaults.cardColors(containerColor = WarmCream),
@@ -157,22 +167,39 @@ fun SessionHistoryItem(time: Long, duration: Int, count: Int) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
-                Text(
-                    text = "${count} Sessions Set",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = DarkWarmBrown
-                )
+                // Rhythm State Indicator
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = statusIcon, fontSize = 12.sp)
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = rhythmState,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = statusColor,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(4.dp))
+
                 Text(
                     text = timeFormat.format(Date(time)),
                     style = MaterialTheme.typography.labelMedium,
                     color = MutedGreyBrown.copy(alpha = 0.7f)
                 )
             }
-            Text(
-                text = "+$duration min",
-                style = MaterialTheme.typography.titleMedium,
-                color = MutedMoss
-            )
+
+            Column(horizontalAlignment = Alignment.End) {
+                Text(
+                    text = "+$duration min",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = statusColor // Color code the time too
+                )
+                Text(
+                    text = "$count planned",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MutedGreyBrown.copy(alpha = 0.5f)
+                )
+            }
         }
     }
 }

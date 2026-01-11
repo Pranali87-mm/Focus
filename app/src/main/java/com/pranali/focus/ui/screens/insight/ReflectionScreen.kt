@@ -12,74 +12,90 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.pranali.focus.ui.theme.*
+import com.pranali.focus.util.RhythmManager
+import com.pranali.focus.util.RhythmState
 
 @Composable
 fun ReflectionScreen(
     totalSessions: Int,
+    rhythmState: RhythmState, // New Input
     onReturnHome: () -> Unit
 ) {
+    // Get the advice text based on the state
+    val reflectionMessage = RhythmManager.getReflectionMessage(rhythmState)
+
+    // Determine visual style based on state
+    val (stateTitle, stateIcon, stateColor) = when (rhythmState) {
+        RhythmState.Balanced -> Triple("Rhythm: Balanced", "🌿", MutedMoss)
+        RhythmState.Strained -> Triple("Rhythm: Strained", "🔥", BurntOrange)
+        RhythmState.Exhausted -> Triple("Rhythm: Exhausted", "🌙", MutedGreyBrown)
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(SoftBeige) // Gentle background
+            .background(SoftBeige)
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         // --- Top: Header ---
         Text(
-            text = "Session Complete",
+            text = "Cycle Complete",
             style = MaterialTheme.typography.labelLarge,
             color = MutedGreyBrown,
             modifier = Modifier.padding(top = 16.dp)
         )
 
-        // --- Center: Reward/Insight ---
+        // --- Center: Insight ---
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
             modifier = Modifier.weight(1f)
         ) {
-            // Character Visualization (Celebration/Content State)
+            // State Visualization
             Box(
                 modifier = Modifier
-                    .size(240.dp)
+                    .size(200.dp)
                     .clip(CircleShape)
                     .background(WarmCream)
-                    .border(4.dp, MutedMoss.copy(alpha = 0.5f), CircleShape),
+                    .border(4.dp, stateColor.copy(alpha = 0.3f), CircleShape),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "Character\n(Smiling/Content)",
-                    textAlign = TextAlign.Center,
-                    color = MutedMoss,
-                    style = MaterialTheme.typography.bodyMedium
+                    text = stateIcon,
+                    fontSize = 64.sp
                 )
             }
 
             Spacer(modifier = Modifier.height(40.dp))
 
             Text(
-                text = "Rhythm Balanced",
+                text = stateTitle,
                 style = MaterialTheme.typography.headlineMedium,
-                color = DarkWarmBrown
+                color = stateColor
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "You completed $totalSessions focus sessions.",
+                text = "You completed $totalSessions sessions.",
                 style = MaterialTheme.typography.bodyLarge,
-                color = MutedGreyBrown
+                color = DarkWarmBrown,
+                fontWeight = androidx.compose.ui.text.font.FontWeight.Medium
             )
 
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // The Dynamic Advice
             Text(
-                text = "Take a moment to appreciate your effort.",
+                text = reflectionMessage,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MutedGreyBrown,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(horizontal = 16.dp)
             )
         }
 
@@ -91,7 +107,7 @@ fun ReflectionScreen(
                 .height(56.dp),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = BurntOrange,
+                containerColor = stateColor, // Button matches the state color
                 contentColor = WarmCream
             )
         ) {
